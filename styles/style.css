@@ -73,3 +73,43 @@ figure {
 a {
   color: inherit;
 }
+
+.content__blockquote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 200%;
+  margin-bottom: 1.5em;
+}
+
+.content__blockquote blockquote {
+  width: 75%;
+}
+
+.content__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.content__list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
+
+.content__list li::before {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  content: url(/images/marker-light.svg);
+  width: 15px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
