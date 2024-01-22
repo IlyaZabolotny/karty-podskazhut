@@ -64,6 +64,7 @@ figure {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  position: relative;
 }
 
 .content__text-block .content__paragraph:not(:last-child) {
@@ -126,4 +127,66 @@ a {
   background-color: var(--accent-color);
   padding: 0 4px;
   margin-right: 1px;
+}
+
+.content__figure {
+  margin: 7% 0;
+  position: relative;
+}
+
+.content-picture {
+  width: 100%;
+  position: absolute;
+}
+
+.content__picture-caption {
+  display: flex;
+  padding: 20px 0px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--text-color);
+}
+.content__card {
+  margin-top: 7%;
+  padding: 10px;
+  display: flex;
+  aspect-ratio: 4/3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--text-color);
+}
+
+.content__card-title {
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--accent-font);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 90%;
+}
+
+content__card-subtitle {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.colored-text {
+  position: relative;
+}
+
+.colored-text::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -5px;
+  top: 35px;
+  width: calc(100% + 10px);
+  height: 0.7ch;
+  background-color: var(--accent-color);
 }
