@@ -6,7 +6,7 @@
 
 .page {
   min-inline-size: 360px;
-  margin: 0;
+  margin: 0 auto;
   background-color: var(--bg-color, #f3efec);
   color: var(--text-color, #312a4e);
   font-family: var(--main-font, "Raleway", "Arial", sans-serif);
@@ -130,13 +130,14 @@ a {
 }
 
 .content__figure {
-  margin: 7% 0;
   position: relative;
+  margin: 7% 0;
+  width: calc(100% + 10vi);
+  right: 5vi;
 }
 
 .content-picture {
   width: 100%;
-  position: absolute;
 }
 
 .content__picture-caption {
