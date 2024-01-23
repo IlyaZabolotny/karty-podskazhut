@@ -22,6 +22,7 @@ ol,
 li,
 figure {
   margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -30,6 +31,12 @@ figure {
   --accent-color: #ffab6b;
   --main-font: "Raleway", "Arial", sans-serif;
   --accent-font: "STIX Two Text", "Arial", sans-serif;
+}
+
+.theme_dark {
+  --bg-color: #171717;
+  --text-color: #b3b3b3;
+  --accent-color: transparent;
 }
 
 .header {
@@ -78,7 +85,10 @@ figure {
   font-weight: 400;
   line-height: 104%;
   border: none;
-  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 .header__theme-button_is-active {
@@ -86,15 +96,50 @@ figure {
   position: relative;
 }
 
+.header__theme-button_type_dark:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.header__theme-button_type_light:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .header__theme-button_is-active::after {
   content: "";
   position: absolute;
+  display: inline-block;
   z-index: -1;
   top: 10px;
-  left: -5px;
-  width: calc(100% + 10px);
+  left: 0;
+  width: 100%;
   height: 0.7ch;
   background-color: var(--accent-color);
+}
+
+.theme_dark .header__theme-button_is-active::after {
+  background-image: url(../images/pattern.svg);
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:focus {
+  outline: 1px solid var(--text-color);
+}
+
+.header__theme-button:focus {
+  outline: 1px solid var(--text-color);
+}
+
+.header__theme-button:disabled {
+  pointer-events: none;
 }
 
 .content__title {
@@ -117,10 +162,6 @@ figure {
 
 .content__text-block .content__paragraph:not(:last-child) {
   margin-bottom: 1.5em;
-}
-
-a {
-  color: inherit;
 }
 
 .content__blockquote {
@@ -155,12 +196,16 @@ a {
   position: absolute;
   left: 15px;
   top: 0;
-  content: url(/images/marker-light.svg);
+  content: url(../images/marker-light.svg);
   width: 15px;
   height: 15px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.theme_dark .content__list li::before {
+  content: url("../images/marker-dark.svg");
 }
 
 .content__text-block_type_first-lettered
@@ -175,6 +220,13 @@ a {
   background-color: var(--accent-color);
   padding: 0 4px;
   margin-right: 1px;
+}
+
+.theme_dark
+  .content__text-block_type_first-lettered
+  .content__paragraph:first-child::first-letter {
+  background-color: transparent;
+  border: 1px solid var(--text-color, #b3b3b3);
 }
 
 .content__figure {
@@ -195,6 +247,7 @@ a {
   align-items: center;
   border-bottom: 1px solid var(--text-color);
 }
+
 .content__card {
   margin-top: 7%;
   padding: 10px;
@@ -216,7 +269,7 @@ a {
   line-height: 90%;
 }
 
-content__card-subtitle {
+.content__card-subtitle {
   color: var(--text-color);
   text-align: center;
   font-size: 18px;
@@ -238,6 +291,18 @@ content__card-subtitle {
   width: calc(100% + 10px);
   height: 0.7ch;
   background-color: var(--accent-color);
+}
+
+.theme_dark .colored-text::after {
+  background-image: url(../images/pattern.svg);
+}
+
+.header__logo {
+  cursor: auto;
+}
+
+.header__logo:focus-visible {
+  outline: none;
 }
 
 .footer {
