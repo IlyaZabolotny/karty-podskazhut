@@ -73,7 +73,7 @@ figure {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 7px;
 }
 
 .header__theme-button {
@@ -85,6 +85,10 @@ figure {
   font-weight: 400;
   line-height: 104%;
   border: none;
+}
+
+.header__theme-button_type_light {
+  margin-right: -20px;
 }
 
 button:focus {
@@ -161,7 +165,7 @@ a:focus {
 }
 
 .content__text-block .content__paragraph:not(:last-child) {
-  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 .content__blockquote {
@@ -182,44 +186,48 @@ a:focus {
 }
 
 .content__list {
-  list-style: none;
-  padding-left: 0;
+  list-style-type: none;
+  padding-inline-start: 40px;
 }
 
-.content__list li {
+.content__list-item {
   position: relative;
-  padding-left: 40px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.content__list li::before {
-  position: absolute;
-  left: 15px;
-  top: 0;
-  content: url(../images/marker-light.svg);
+.content__list-item:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.content__list-item::before {
+  content: "";
   width: 15px;
   height: 15px;
+  background-image: url("../images/marker-light.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  object-position: center;
+  position: absolute;
+  left: -25px;
 }
 
-.theme_dark .content__list li::before {
-  content: url("../images/marker-dark.svg");
+.theme_dark .content__list-item::before {
+  background-image: url("../images/marker-dark.svg");
 }
 
 .content__text-block_type_first-lettered
   .content__paragraph:first-child::first-letter {
-  display: inline-block;
-  text-align: center;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 9px;
-  background-color: var(--accent-color);
   padding: 0 4px;
   margin-right: 1px;
+  margin-left: -4px;
+  font-weight: 700;
+  font-size: 30px;
+  background-color: var(--accent-color);
 }
 
 .theme_dark
@@ -250,10 +258,9 @@ a:focus {
 
 .content__card {
   margin-top: 7%;
-  padding: 10px;
   display: flex;
-  aspect-ratio: 4/3;
   flex-direction: column;
+  aspect-ratio: 4 / 3;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--text-color);
